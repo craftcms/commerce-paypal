@@ -3,11 +3,7 @@
 namespace craft\commerce\paypal\gateways;
 
 use Craft;
-use craft\commerce\omnipay\base\OffsiteGatewayTrait;
-use craft\commerce\models\payments\BasePaymentForm;
-use craft\commerce\models\Transaction;
-use craft\commerce\omnipay\base\Gateway as OmnipayGateway;
-use craft\commerce\records\Transaction as TransactionRecord;
+use craft\commerce\omnipay\base\OffsiteGateway;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Omnipay;
 use Omnipay\PayPal\PayPalItemBag;
@@ -19,10 +15,8 @@ use Omnipay\PayPal\ExpressGateway as Gateway;
  * @author    Pixel & Tonic, Inc. <support@pixelandtonic.com>
  * @since     1.0
  */
-class PayPalExpress extends OmnipayGateway
+class PayPalExpress extends OffsiteGateway
 {
-
-    use OffsiteGatewayTrait;
 
     // Properties
     // =========================================================================
@@ -140,23 +134,5 @@ class PayPalExpress extends OmnipayGateway
     protected function getItemBagClassName(): string
     {
         return PayPalItemBag::class;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function getRequest(Transaction $transaction, BasePaymentForm $form = null)
-    {
-        // For authorize and capture we're referring to a transaction that already took place so no card or item shenanigans.
-        if (in_array($transaction->type, [TransactionRecord::TYPE_REFUND, TransactionRecord::TYPE_CAPTURE], false)) {
-            $request = $this->createPaymentRequest($transaction);
-        } else {
-            $order = $transaction->getOrder();
-            $itemBag = $this->getItemBagForOrder($order);
-            $request = $this->createPaymentRequest($transaction, null, $itemBag);
-            $this->populateRequest($request, $form);
-        }
-
-        return $request;
     }
 }
