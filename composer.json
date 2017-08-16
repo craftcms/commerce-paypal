@@ -1,0 +1,48 @@
+{
+  "name": "craftcms/commerce-paypal",
+  "description": "PayPal integration for Craft Commerce",
+  "version": "1.0.0",
+  "type": "craft-plugin",
+  "keywords": [
+    "stripe",
+    "commerce",
+    "craftcms",
+    "omnipay",
+    "yii2"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pixel & Tonic",
+      "homepage": "https://pixelandtonic.com/"
+    }
+  ],
+  "support": {
+    "email": "support@craftcms.com",
+    "issues": "https://github.com/craftcms/commerce-paypal/issues?state=open",
+    "source": "https://github.com/craftcms/commerce-paypal",
+    "docs": "https://github.com/craftcms/commerce-paypal",
+    "rss": "https://github.com/craftcms/commerce-paypal/commits/master.atom"
+  },
+  "require": {
+    "craftcms/commerce-omnipay": "*",
+    "omnipay/paypal": "~2.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "craft\\commerce\\paypal\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "extra": {
+    "name": "PayPal",
+    "handle": "commerce-paypal",
+    "changelogUrl": "https://raw.githubusercontent.com/craftcms/commerce-paypal/master/CHANGELOG.md",
+    "downloadUrl": "https://github.com/craftcms/commerce-paypal/archive/master.zip"
+  }
+}

@@ -1,0 +1,38 @@
+{% from "_includes/forms" import textField, lightswitchField %}
+
+{{ textField({
+    label: 'API Username'|t('commerce'),
+    instructions: "Your PayPal API username."|t('commerce'),
+    id: 'user',
+    class: 'ltr',
+    name: 'user',
+    value: gateway.user,
+    errors: gateway.getErrors('user')
+}) }}
+
+{{ textField({
+    label: "API Password"|t('commerce'),
+    instructions: "Your PayPal API password."|t('commerce'),
+    id: 'password',
+    class: 'ltr',
+    name: 'password',
+    value: gateway.password,
+    errors: gateway.getErrors('password')
+}) }}
+
+{{ textField({
+    label: "API Signature"|t('commerce'),
+    instructions: "Your PayPal API signature."|t('commerce'),
+    id: 'signature',
+    class: 'ltr',
+    name: 'signature',
+    value: gateway.signature,
+    errors: gateway.getErrors('signature')
+}) }}
+
+ {{ lightswitchField({
+     label: "Test mode?"|t('commerce'),
+     name: 'testMode',
+     on: gateway.testMode,
+     errors: gateway.getErrors('testMode'),
+ }) }}
