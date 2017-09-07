@@ -79,13 +79,6 @@ class PayPalExpress extends OffsiteGateway
      */
     public static function displayName(): string
     {
-        $settings['solutionType'] = array('Sole', 'Mark');
-        $settings['landingPage'] = array('Billing', 'Login');
-        $settings['brandName'] = '';
-        $settings['headerImageUrl'] = '';
-        $settings['logoImageUrl'] = '';
-        $settings['borderColor'] = '';
-
         return Craft::t('commerce', 'PayPal Express');
     }
 
