@@ -89,22 +89,6 @@ class PayPalRest extends OffsiteGateway
     }
 
     /**
-     * Fetch a transaction from gateway.
-     *
-     * @param Transaction $transaction
-     * @param string      $reference
-     *
-     * @return RequestResponseInterface
-     */
-    public function fetchTransaction(Transaction $transaction, string $reference): RequestResponseInterface
-    {
-        /** @var Gateway $gateway */
-        $gateway = $this->gateway();
-        $fetchRequest = $gateway->fetchTransaction(['transactionReference' => $reference]);
-        return $this->performRequest($fetchRequest, $transaction);
-    }
-
-    /**
      * @inheritdoc
      */
     public function getSettingsHtml()
