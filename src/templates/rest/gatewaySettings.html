@@ -1,0 +1,26 @@
+{% from "_includes/forms" import textField, lightswitchField, selectField %}
+
+{{ textField({
+    label: 'Client ID'|t('commerce'),
+    id: 'clientId',
+    class: 'ltr',
+    name: 'clientId',
+    value: gateway.clientId,
+    errors: gateway.getErrors('clientId')
+}) }}
+
+{{ textField({
+    label: "Secret"|t('commerce'),
+    id: 'secret',
+    class: 'ltr',
+    name: 'secret',
+    value: gateway.secret,
+    errors: gateway.getErrors('secret')
+}) }}
+
+{{ lightswitchField({
+    label: "Test mode?"|t('commerce'),
+    name: 'testMode',
+    on: gateway.testMode,
+    errors: gateway.getErrors('testMode'),
+}) }}

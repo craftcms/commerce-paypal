@@ -9,7 +9,7 @@ namespace craft\commerce\paypal\migrations;
 
 use Craft;
 use craft\commerce\paypal\gateways\PayPalPro;
-use craft\commerce\paypal\gateways\PayPalExpress;
+use craft\commerce\paypal\gateways\PayPalRest;
 use craft\db\Migration;
 use craft\db\Query;
 
@@ -71,25 +71,5 @@ class Install extends Migration
                 ->update('{{%commerce_gateways}}', $values, ['id' => $gateway['id']])
                 ->execute();
         }
-
-        $gateways = (new Query())
-            ->select(['id'])
-            ->where(['type' => 'craft\\commerce\\gateways\\PayPal_Express'])
-            ->from(['{{%commerce_gateways}}'])
-            ->all();
-
-        $dbConnection = Craft::$app->getDb();
-
-        foreach ($gateways as $gateway) {
-
-            $values = [
-                'type' => PayPalExpress::class,
-            ];
-
-            $dbConnection->createCommand()
-                ->update('{{%commerce_gateways}}', $values, ['id' => $gateway['id']])
-                ->execute();
-        }
-
     }
 }
