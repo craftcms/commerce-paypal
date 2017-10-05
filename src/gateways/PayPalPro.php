@@ -10,7 +10,7 @@ use Omnipay\PayPal\PayPalItemBag;
 use Omnipay\PayPal\ProGateway as Gateway;
 
 /**
- * PayPalPro represents PayPalPro gateway
+ * PayPalPro represents PayPal Pro gateway
  *
  * @author    Pixel & Tonic, Inc. <support@pixelandtonic.com>
  * @since     1.0

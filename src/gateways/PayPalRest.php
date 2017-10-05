@@ -16,7 +16,7 @@ use Omnipay\PayPal\PayPalItemBag;
 use Omnipay\PayPal\RestGateway as Gateway;
 
 /**
- * Stripe represents the Stripe gateway
+ * PayPalRest represents the PayPal Rest gateway
  *
  * @author    Pixel & Tonic, Inc. <support@pixelandtonic.com>
  * @since     1.0
