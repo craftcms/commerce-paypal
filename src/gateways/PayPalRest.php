@@ -85,7 +85,7 @@ class PayPalRest extends OffsiteGateway
      */
     public static function displayName(): string
     {
-        return Craft::t('commerce', 'PayPal REST');
+        return Craft::t('commerce', 'PayPal Express');
     }
 
     /**
