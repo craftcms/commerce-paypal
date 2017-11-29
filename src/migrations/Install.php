@@ -12,6 +12,7 @@ use craft\commerce\paypal\gateways\PayPalPro;
 use craft\commerce\paypal\gateways\PayPalRest;
 use craft\db\Migration;
 use craft\db\Query;
+use craft\helpers\Json;
 
 /**
  * Installation Migration
@@ -47,14 +48,14 @@ class Install extends Migration
     // =========================================================================
 
     /**
-     * Converts any old school Stripe gateways to this one
+     * Converts any old school PayPal gateways to this one
      *
      * @return void
      */
     private function _convertGateways()
     {
         $gateways = (new Query())
-            ->select(['id'])
+            ->select(['id', 'settings'])
             ->where(['type' => 'craft\\commerce\\gateways\\PayPal_Pro'])
             ->from(['{{%commerce_gateways}}'])
             ->all();
@@ -63,8 +64,16 @@ class Install extends Migration
 
         foreach ($gateways as $gateway) {
 
+            $settings = Json::decode($gateway['settings']);
+
+            if (!empty($settings['username'])) {
+                $settings['user'] = $settings['username'];
+                unset($settings['username']);
+            }
+
             $values = [
                 'type' => PayPalPro::class,
+                'settings' => Json::encode($settings)
             ];
 
             $dbConnection->createCommand()
