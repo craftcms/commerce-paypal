@@ -3,7 +3,7 @@ PayPal payment gateways for Craft Commerce
 
 This plugin provides [PayPal](https://www.paypal.com/) integrations for [Craft Commerce](https://craftcommerce.com/).
 
-It provides both PayPal Pro and PayPal Express Checkout gateways.
+It provides PayPal Pro, PayPal Express Checkout and PayPal REST gateways. Credit card payments with the REST gateway are supported only in the UK and US.
 
 ## Requirements
 

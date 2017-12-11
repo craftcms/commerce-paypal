@@ -3,7 +3,9 @@
 namespace craft\commerce\paypal\gateways;
 
 use Craft;
+use craft\commerce\models\payments\BasePaymentForm;
 use craft\commerce\omnipay\base\CreditCardGateway;
+use craft\commerce\paypal\models\PayPalRestPaymentForm;
 use craft\helpers\StringHelper;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\ResponseInterface;
@@ -47,6 +49,14 @@ class PayPalRest extends CreditCardGateway
     public static function displayName(): string
     {
         return Craft::t('commerce', 'PayPal REST gateway');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getPaymentFormModel()
+    {
+        return new PayPalRestPaymentForm();
     }
 
     /**
@@ -98,5 +108,15 @@ class PayPalRest extends CreditCardGateway
     protected function getItemBagClassName(): string
     {
         return PayPalItemBag::class;
+    }
+
+    public function populateRequest(array &$request, BasePaymentForm $paymentForm = null)
+    {
+        parent::populateRequest($request, $paymentForm);
+
+        if ($paymentForm && $paymentForm->hasProperty('cardReference') && $paymentForm->cardReference) {
+            $request['cardReference'] = $paymentForm->cardReference;
+        }
+
     }
 }
