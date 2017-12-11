@@ -2,6 +2,7 @@
 
 namespace craft\commerce\paypal;
 
+use craft\commerce\paypal\gateways\PayPalExpress;
 use craft\commerce\paypal\gateways\PayPalRest;
 use craft\commerce\paypal\gateways\PayPalPro;
 use craft\commerce\services\Gateways;
@@ -30,6 +31,7 @@ class Plugin extends \craft\base\Plugin
         Event::on(Gateways::class, Gateways::EVENT_REGISTER_GATEWAY_TYPES,  function(RegisterComponentTypesEvent $event) {
             $event->types[] = PayPalPro::class;
             $event->types[] = PayPalRest::class;
+            $event->types[] = PayPalExpress::class;
         });
     }
 }

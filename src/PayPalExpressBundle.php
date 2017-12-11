@@ -6,7 +6,7 @@ use craft\web\AssetBundle;
 /**
  * Asset bundle for the PayPal REST payment
  */
-class PayPalRestBundle extends AssetBundle
+class PayPalExpressBundle extends AssetBundle
 {
     /**
      * @inheritdoc

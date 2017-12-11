@@ -3,14 +3,10 @@
 namespace craft\commerce\paypal\gateways;
 
 use Craft;
-use craft\commerce\base\RequestResponseInterface;
-use craft\commerce\errors\PaymentException;
-use craft\commerce\models\payments\BasePaymentForm;
-use craft\commerce\models\Transaction;
-use craft\commerce\paypal\PayPalRestBundle;
-use craft\commerce\omnipay\base\OffsiteGateway;
-use craft\web\View;
+use craft\commerce\omnipay\base\CreditCardGateway;
+use craft\helpers\StringHelper;
 use Omnipay\Common\AbstractGateway;
+use Omnipay\Common\Message\ResponseInterface;
 use Omnipay\Omnipay;
 use Omnipay\PayPal\PayPalItemBag;
 use Omnipay\PayPal\RestGateway as Gateway;
@@ -21,7 +17,7 @@ use Omnipay\PayPal\RestGateway as Gateway;
  * @author    Pixel & Tonic, Inc. <support@pixelandtonic.com>
  * @since     1.0
  */
-class PayPalRest extends OffsiteGateway
+class PayPalRest extends CreditCardGateway
 {
     // Properties
     // =========================================================================
@@ -44,48 +40,13 @@ class PayPalRest extends OffsiteGateway
     // Public Methods
     // =========================================================================
 
-    /**
-     * @inheritdoc
-     */
-    public function completeAuthorize(Transaction $transaction): RequestResponseInterface
-    {
-        return $this->completePurchase($transaction);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function completePurchase(Transaction $transaction): RequestResponseInterface
-    {
-        $request = $this->createRequest($transaction);
-
-        $paymentId = Craft::$app->getRequest()->getParam('paymentId');
-
-        if (!$paymentId) {
-            throw new PaymentException('Missing payment ID');
-        }
-
-        $request['transactionReference'] = $paymentId;
-
-        if (empty($request['PayerID'])) {
-            $payerId = Craft::$app->getRequest()->getParam('PayerID');
-            if (!$payerId) {
-                throw new PaymentException('Missing payer ID');
-            }
-            $request['PayerID'] = $payerId;
-        }
-
-        $completeRequest = $this->prepareCompletePurchaseRequest($request);
-
-        return $this->performRequest($completeRequest, $transaction);
-    }
 
     /**
      * @inheritdoc
      */
     public static function displayName(): string
     {
-        return Craft::t('commerce', 'PayPal Express');
+        return Craft::t('commerce', 'PayPal REST gateway');
     }
 
     /**
@@ -94,39 +55,6 @@ class PayPalRest extends OffsiteGateway
     public function getSettingsHtml()
     {
         return Craft::$app->getView()->renderTemplate('commerce-paypal/rest/gatewaySettings', ['gateway' => $this]);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getPaymentFormHtml(array $params)
-    {
-        $defaults = [
-            'gateway' => $this
-        ];
-
-        $params = array_merge($defaults, $params);
-
-        $view = Craft::$app->getView();
-
-        $previousMode = $view->getTemplateMode();
-        $view->setTemplateMode(View::TEMPLATE_MODE_CP);
-
-        $view->registerJsFile('https://www.paypalobjects.com/api/checkout.js');
-        $view->registerAssetBundle(PayPalRestBundle::class);
-
-        $html = Craft::$app->getView()->renderTemplate('commerce-paypal/rest/paymentForm', $params);
-        $view->setTemplateMode($previousMode);
-
-        return $html;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function populateRequest(array &$request, BasePaymentForm $paymentForm = null)
-    {
-        unset($request['card']);
     }
 
     // Protected Methods
@@ -145,6 +73,15 @@ class PayPalRest extends OffsiteGateway
         $gateway->setTestMode($this->testMode);
 
         return $gateway;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function extractPaymentSourceDescription(ResponseInterface $response): string
+    {
+        $data = $response->getData();
+        return Craft::t('commerce-paypal', '{cardType} ending in {last4}', ['cardType' => StringHelper::upperCaseFirst($data['type']), 'last4' => $data['number']]);
     }
 
     /**

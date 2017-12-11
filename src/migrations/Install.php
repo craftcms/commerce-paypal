@@ -8,6 +8,7 @@
 namespace craft\commerce\paypal\migrations;
 
 use Craft;
+use craft\commerce\paypal\gateways\PayPalExpress;
 use craft\commerce\paypal\gateways\PayPalPro;
 use craft\commerce\paypal\gateways\PayPalRest;
 use craft\db\Migration;
@@ -51,6 +52,7 @@ class Install extends Migration
      * Converts any old school PayPal gateways to this one
      *
      * @return void
+     * @throws \yii\db\Exception
      */
     private function _convertGateways()
     {
@@ -74,6 +76,24 @@ class Install extends Migration
             $values = [
                 'type' => PayPalPro::class,
                 'settings' => Json::encode($settings)
+            ];
+
+            $dbConnection->createCommand()
+                ->update('{{%commerce_gateways}}', $values, ['id' => $gateway['id']])
+                ->execute();
+        }
+
+        $gateways = (new Query())
+            ->select(['id'])
+            ->where(['type' => 'craft\\commerce\\gateways\\PayPal_Express'])
+            ->from(['{{%commerce_gateways}}'])
+            ->all();
+ 
+        $dbConnection = Craft::$app->getDb();
+ 
+        foreach ($gateways as $gateway) {
+            $values = [
+                'type' => PayPalExpress::class,
             ];
 
             $dbConnection->createCommand()
