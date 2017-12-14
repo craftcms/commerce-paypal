@@ -110,6 +110,9 @@ class PayPalRest extends CreditCardGateway
         return PayPalItemBag::class;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function populateRequest(array &$request, BasePaymentForm $paymentForm = null)
     {
         parent::populateRequest($request, $paymentForm);
@@ -117,6 +120,5 @@ class PayPalRest extends CreditCardGateway
         if ($paymentForm && $paymentForm->hasProperty('cardReference') && $paymentForm->cardReference) {
             $request['cardReference'] = $paymentForm->cardReference;
         }
-
     }
 }
