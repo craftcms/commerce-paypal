@@ -54,7 +54,7 @@ class PayPalRest extends CreditCardGateway
     /**
      * @inheritdoc
      */
-    public function getPaymentFormModel()
+    public function getPaymentFormModel(): BasePaymentForm
     {
         return new PayPalRestPaymentForm();
     }
