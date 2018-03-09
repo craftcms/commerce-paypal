@@ -26,4 +26,10 @@ To install the plugin, follow these instructions.
 
 ## Setup
 
-To add a PayPal payment gateway, go to Commerce → Settings → Gateways, create a new gateway, and set the gateway type to either “PayPal Pro” or “PayPal Express”.
+To add a PayPal payment gateway, go to Commerce → Settings → Gateways, create a new gateway, and set the gateway type to either “PayPal Pro”, “PayPal REST” or “PayPal Express”.
+
+### Important
+If you're going to use the PayPal Express payment gateway you are required to change the default value of ```tokenParam``` in your
+[Craft config](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$tokenParam-detail)
+
+Choose any different token name other than ```token```, for example you could put ```craftToken```. Otherwise redirects from PayPal will fail.
