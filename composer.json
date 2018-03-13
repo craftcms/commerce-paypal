@@ -1,6 +1,6 @@
 {
   "name": "craftcms/commerce-paypal",
-  "description": "PayPal integration for Craft Commerce",
+  "description": "PayPal payment gateways plugin for Craft Commerce 2",
   "version": "1.0.0",
   "type": "craft-plugin",
   "keywords": [
@@ -25,7 +25,7 @@
     "rss": "https://github.com/craftcms/commerce-paypal/commits/master.atom"
   },
   "require": {
-    "craftcms/commerce-omnipay": "*",
+    "craftcms/commerce": "^2.0.0-alpha.5",
     "omnipay/paypal": "~2.6"
   },
   "autoload": {
@@ -33,12 +33,6 @@
       "craft\\commerce\\paypal\\": "src/"
     }
   },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://asset-packagist.org"
-    }
-  ],
   "extra": {
     "name": "PayPal",
     "handle": "commerce-paypal",

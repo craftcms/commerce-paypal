@@ -1,4 +1,4 @@
-PayPal payment gateways for Craft Commerce
+PayPal payment gateways plugin for Craft Commerce 2
 =======================
 
 This plugin provides [PayPal](https://www.paypal.com/) integrations for [Craft Commerce](https://craftcommerce.com/).
