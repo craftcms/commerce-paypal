@@ -35,7 +35,7 @@
     }
   },
   "extra": {
-    "name": "PayPal",
+    "name": "PayPal for Craft Commerce",
     "handle": "commerce-paypal",
     "changelogUrl": "https://raw.githubusercontent.com/craftcms/commerce-paypal/master/CHANGELOG.md",
     "downloadUrl": "https://github.com/craftcms/commerce-paypal/archive/master.zip"
