@@ -76,6 +76,11 @@ class PayPalExpress extends OffsiteGateway
      */
     public $borderColor;
 
+    /**
+     * @var bool Whether cart information should be sent to the payment gateway
+     */
+    public $sendCartInfo = false;
+
     // Public Methods
     // =========================================================================
 
