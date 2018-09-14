@@ -76,6 +76,11 @@ class PayPalExpress extends OffsiteGateway
      */
     public $borderColor;
 
+    /**
+     * @var bool Whether cart information should be sent to the payment gateway
+     */
+    public $sendCartInfo = false;
+
     // Public Methods
     // =========================================================================
 
@@ -84,7 +89,10 @@ class PayPalExpress extends OffsiteGateway
      */
     public function completeAuthorize(Transaction $transaction): RequestResponseInterface
     {
-        return $this->completePurchase($transaction);
+        $request = $this->_prepareOffsiteTransactionConfirmationRequest($transaction);
+        $completeRequest = $this->prepareCompleteAuthorizeRequest($request);
+
+        return $this->performRequest($completeRequest, $transaction);
     }
 
     /**
@@ -92,22 +100,7 @@ class PayPalExpress extends OffsiteGateway
      */
     public function completePurchase(Transaction $transaction): RequestResponseInterface
     {
-        $request = $this->createRequest($transaction);
-
-        $token = Craft::$app->getRequest()->getParam('token');
-        $payerId = Craft::$app->getRequest()->getParam('PayerID');
-
-        if (!$token) {
-            throw new PaymentException('Missing token');
-        }
-
-        $request['token'] = $token;
-
-        if (!$payerId) {
-            throw new PaymentException('Missing payer ID');
-        }
-        $request['PayerID'] = $payerId;
-
+        $request = $this->_prepareOffsiteTransactionConfirmationRequest($transaction);
         $completeRequest = $this->prepareCompletePurchaseRequest($request);
 
         return $this->performRequest($completeRequest, $transaction);
@@ -201,5 +194,36 @@ class PayPalExpress extends OffsiteGateway
     protected function getItemBagClassName(): string
     {
         return PayPalItemBag::class;
+    }
+
+    // Private Methods
+    // =========================================================================
+
+    /**
+     * Prepare the confirmation request for completeAuthorize and completePurchase requests.
+     *
+     * @param Transaction $transaction
+     * @return array
+     * @throws PaymentException if missing parameters
+     */
+    private function _prepareOffsiteTransactionConfirmationRequest(Transaction $transaction): array
+    {
+        $request = $this->createRequest($transaction);
+
+        $token = Craft::$app->getRequest()->getParam('token');
+        $payerId = Craft::$app->getRequest()->getParam('PayerID');
+
+        if (!$token) {
+            throw new PaymentException('Missing token');
+        }
+
+        $request['token'] = $token;
+
+        if (!$payerId) {
+            throw new PaymentException('Missing payer ID');
+        }
+        $request['PayerID'] = $payerId;
+
+        return $request;
     }
 }

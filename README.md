@@ -1,4 +1,4 @@
-PayPal payment gateways for Craft Commerce
+PayPal payment gateways plugin for Craft Commerce 2
 =======================
 
 This plugin provides [PayPal](https://www.paypal.com/) integrations for [Craft Commerce](https://craftcommerce.com/).
@@ -7,7 +7,7 @@ It provides PayPal Pro, PayPal Express Checkout and PayPal REST gateways. Credit
 
 ## Requirements
 
-This plugin requires Craft Commerce 2.0.1-alpha.4 or later.
+This plugin requires Craft Commerce 2.0.0-alpha.5 or later.
 
 
 ## Installation
@@ -26,4 +26,10 @@ To install the plugin, follow these instructions.
 
 ## Setup
 
-To add a PayPal payment gateway, go to Commerce → Settings → Gateways, create a new gateway, and set the gateway type to either “PayPal Pro” or “PayPal Express”.
+To add a PayPal payment gateway, go to Commerce → Settings → Gateways, create a new gateway, and set the gateway type to either “PayPal Pro”, “PayPal REST” or “PayPal Express”.
+
+### Important
+If you're going to use the PayPal Express payment gateway you are required to change the default value of ```tokenParam``` in your
+[Craft config](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$tokenParam-detail)
+
+Choose any different token name other than ```token```, for example you could put ```craftToken```. Otherwise redirects from PayPal will fail.

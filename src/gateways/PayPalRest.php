@@ -67,6 +67,18 @@ class PayPalRest extends CreditCardGateway
         return Craft::$app->getView()->renderTemplate('commerce-paypal/rest/gatewaySettings', ['gateway' => $this]);
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function populateRequest(array &$request, BasePaymentForm $paymentForm = null)
+    {
+        parent::populateRequest($request, $paymentForm);
+
+        if ($paymentForm && $paymentForm->hasProperty('cardReference') && $paymentForm->cardReference) {
+            $request['cardReference'] = $paymentForm->cardReference;
+        }
+    }
+
     // Protected Methods
     // =========================================================================
 
@@ -108,17 +120,5 @@ class PayPalRest extends CreditCardGateway
     protected function getItemBagClassName(): string
     {
         return PayPalItemBag::class;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function populateRequest(array &$request, BasePaymentForm $paymentForm = null)
-    {
-        parent::populateRequest($request, $paymentForm);
-
-        if ($paymentForm && $paymentForm->hasProperty('cardReference') && $paymentForm->cardReference) {
-            $request['cardReference'] = $paymentForm->cardReference;
-        }
     }
 }

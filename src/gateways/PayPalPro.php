@@ -91,6 +91,4 @@ class PayPalPro extends CreditCardGateway
     {
         return PayPalItemBag::class;
     }
-
-
 }
