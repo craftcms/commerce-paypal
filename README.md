@@ -41,7 +41,7 @@ To add a PayPal payment gateway, go to Commerce → Settings → Gateways, creat
 Matching the different bits of info up to the fields within the gateway setup can be tricky as sometimes the labels change. This table should help.
 
 | Gateway label         | Sandbox Account/Account					|
-| ----------------------|:-------------------------------------------------------------:|
+| ----------------------|---------------------------------------------------------------|
 | API Username		| Sandbox Account/Account					|
 | API Password		| Client ID							|
 | API Signature		| Secret (click 'Hide' to show it - totally logical)		|
