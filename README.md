@@ -1,28 +1,35 @@
-PayPal payment gateways plugin for Craft Commerce 2
-=======================
+# PayPal for Craft Commerce
 
-This plugin provides [PayPal](https://www.paypal.com/) integrations for [Craft Commerce](https://craftcommerce.com/).
+This plugin provides [PayPal](https://www.paypal.com/) integrations for [Craft Commerce](https://craftcms.com/commerce), including PayPal Pro, PayPal Express Checkout, and PayPal REST.
 
-It provides PayPal Pro, PayPal Express Checkout and PayPal REST gateways. Credit card payments with the REST gateway are supported only in the UK and US.
+Credit card payments with the REST gateway are supported only in the US and UK.
 
 ## Requirements
 
 This plugin requires Craft Commerce 2.0.0-alpha.5 or later.
 
-
 ## Installation
 
-To install the plugin, follow these instructions.
+You can install this plugin from the Plugin Store or with Composer.
 
-1. Open your terminal and go to your Craft project:
+#### From the Plugin Store
 
-        cd /path/to/project
+Go to the Plugin Store in your project’s Control Panel and search for “PayPal for Craft Commerce”. Then click on the “Install” button in its modal window.
 
-2. Then tell Composer to load the plugin:
+#### With Composer
 
-        composer require craftcms/commerce-paypal
+Open your terminal and run the following commands:
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for PayPal.
+```bash
+# go to the project directory
+cd /path/to/my-project.test
+
+# tell Composer to load the plugin
+composer require craftcms/commerce-paypal
+
+# tell Craft to install the plugin
+./craft install/plugin commerce-paypal
+```
 
 ## Setup
 

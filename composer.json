@@ -1,6 +1,6 @@
 {
   "name": "craftcms/commerce-paypal",
-  "description": "PayPal payment gateways plugin for Craft Commerce 2",
+  "description": "PayPal integration for Craft Commerce 2",
   "version": "1.0.0",
   "type": "craft-plugin",
   "keywords": [
@@ -37,8 +37,6 @@
   },
   "extra": {
     "name": "PayPal for Craft Commerce",
-    "handle": "commerce-paypal",
-    "changelogUrl": "https://raw.githubusercontent.com/craftcms/commerce-paypal/master/CHANGELOG.md",
-    "downloadUrl": "https://github.com/craftcms/commerce-paypal/archive/master.zip"
+    "handle": "commerce-paypal"
   }
 }
