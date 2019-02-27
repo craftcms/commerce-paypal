@@ -1,5 +1,5 @@
 function initCheckout() {
-    // Because this might get executed before Stripe is loaded.
+    // Because this might get executed before Paypal is loaded.
     if (typeof paypal === "undefined") {
         setTimeout(initCheckout, 200);
     } else {
