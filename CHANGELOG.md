@@ -1,6 +1,10 @@
 Changelog
 =========
+## Unreleased
 
-### 1.0.0
+### Changed
+- Mollie for Craft Commerce now uses Omnipay v3.
 
-* Initial release.
+## 1.0.0
+
+- Initial release.

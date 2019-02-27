@@ -9,7 +9,6 @@ It provides PayPal Pro, PayPal Express Checkout and PayPal REST gateways. Credit
 
 This plugin requires Craft Commerce 2.0.0-alpha.5 or later.
 
-
 ## Installation
 
 To install the plugin, follow these instructions.
