@@ -26,7 +26,7 @@
   },
   "require": {
     "craftcms/cms": "^3.0.0",
-    "craftcms/commerce": "2.0.0",
+    "craftcms/commerce": "^2.0.0",
     "craftcms/commerce-omnipay": "^2.0.0",
     "omnipay/paypal": "^3.0.2"
   },
