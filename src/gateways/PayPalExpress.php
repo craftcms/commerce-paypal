@@ -166,9 +166,9 @@ class PayPalExpress extends OffsiteGateway
         /** @var Gateway $gateway */
         $gateway = static::createOmnipayGateway($this->getGatewayClassName());
 
-        $gateway->setUsername($this->username);
-        $gateway->setPassword($this->password);
-        $gateway->setSignature($this->signature);
+        $gateway->setUsername(Craft::parseEnv($this->username));
+        $gateway->setPassword(Craft::parseEnv($this->password));
+        $gateway->setSignature(Craft::parseEnv($this->signature));
         $gateway->setTestMode($this->testMode);
         $gateway->setSolutionType($this->solutionType);
         $gateway->setLandingPage($this->landingPage);

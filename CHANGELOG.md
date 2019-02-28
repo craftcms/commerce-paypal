@@ -2,7 +2,11 @@
 
 ## Unreleased
 
+### Added
+- Gateway settings can now be set to environment variables.
+
 ### Changed
+- PayPal for Craft Commerce now requires Craft 3.1.5 or later.
 - PayPal for Craft Commerce now uses Omnipay v3.
 
 ## 1.0.0.1 - 2018-12-11

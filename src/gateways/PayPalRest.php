@@ -90,8 +90,8 @@ class PayPalRest extends CreditCardGateway
         /** @var Gateway $gateway */
         $gateway = static::createOmnipayGateway($this->getGatewayClassName());
 
-        $gateway->setClientId($this->clientId);
-        $gateway->setSecret($this->secret);
+        $gateway->setClientId(Craft::parseEnv($this->clientId));
+        $gateway->setSecret(Craft::parseEnv($this->secret));
         $gateway->setTestMode($this->testMode);
 
         return $gateway;

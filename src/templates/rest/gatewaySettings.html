@@ -1,19 +1,21 @@
-{% from "_includes/forms" import textField, lightswitchField, selectField %}
+{% from "_includes/forms" import textField, lightswitchField, selectField, autosuggestField %}
 
-{{ textField({
+{{ autosuggestField({
     label: 'Client ID'|t('commerce'),
     id: 'clientId',
     class: 'ltr',
     name: 'clientId',
+    suggestEnvVars: true,
     value: gateway.clientId,
     errors: gateway.getErrors('clientId')
 }) }}
 
-{{ textField({
+{{ autosuggestField({
     label: "Secret"|t('commerce'),
     id: 'secret',
     class: 'ltr',
     name: 'secret',
+    suggestEnvVars: true,
     value: gateway.secret,
     errors: gateway.getErrors('secret')
 }) }}

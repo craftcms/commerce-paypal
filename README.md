@@ -35,7 +35,9 @@ composer require craftcms/commerce-paypal
 
 To add a PayPal payment gateway, go to Commerce → Settings → Gateways, create a new gateway, and set the gateway type to either “PayPal Pro”, “PayPal REST” or “PayPal Express”.
 
-### Finding your Paypal Express Credentials
+> **Tip:** Most PayPal gateway settings can be set to environment variables. See [Environmental Configuration](https://docs.craftcms.com/v3/config/environments.html) in the Craft docs to learn more about that.
+
+### Finding your PayPal Express Credentials
 
 1) Log in to your PayPal Seller Account
 2) In the top menu bar click "Profile" and choose "Profile and Settings"

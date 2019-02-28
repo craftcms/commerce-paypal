@@ -1,4 +1,4 @@
-{% from "_includes/forms" import textField, lightswitchField, selectField %}
+{% from "_includes/forms" import textField, lightswitchField, selectField, autosuggestField %}
 
 {{ lightswitchField({
         label: "Should commerce send cart information to gateway when making transactions."|t('commerce'),
@@ -8,29 +8,32 @@
         errors: gateway.getErrors('sendCartInfo'),
 }) }}
 
-{{ textField({
+{{ autosuggestField({
         label: 'API Username'|t('commerce'),
         id: 'username',
         class: 'ltr',
         name: 'username',
+        suggestEnvVars: true,
         value: gateway.username,
         errors: gateway.getErrors('username')
     }) }}
 
-{{ textField({
+{{ autosuggestField({
         label: "API Password"|t('commerce'),
         id: 'password',
         class: 'ltr',
         name: 'password',
+        suggestEnvVars: true,
         value: gateway.password,
         errors: gateway.getErrors('password')
     }) }}
 
-{{ textField({
+{{ autosuggestField({
         label: "API Signature"|t('commerce'),
         id: 'signature',
         class: 'ltr',
         name: 'signature',
+        suggestEnvVars: true,
         value: gateway.signature,
         errors: gateway.getErrors('signature')
     }) }}

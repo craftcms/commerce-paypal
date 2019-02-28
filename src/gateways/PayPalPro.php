@@ -71,9 +71,9 @@ class PayPalPro extends CreditCardGateway
         /** @var Gateway $gateway */
         $gateway = static::createOmnipayGateway($this->getGatewayClassName());
 
-        $gateway->setUsername($this->user);
-        $gateway->setPassword($this->password);
-        $gateway->setSignature($this->signature);
+        $gateway->setUsername(Craft::parseEnv($this->user));
+        $gateway->setPassword(Craft::parseEnv($this->password));
+        $gateway->setSignature(Craft::parseEnv($this->signature));
         $gateway->setTestMode($this->testMode);
 
         return $gateway;
