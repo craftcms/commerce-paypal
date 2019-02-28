@@ -69,7 +69,7 @@ class PayPalPro extends CreditCardGateway
     protected function createGateway(): AbstractGateway
     {
         /** @var Gateway $gateway */
-        $gateway = Omnipay::create($this->getGatewayClassName());
+        $gateway = static::createOmnipayGateway($this->getGatewayClassName());
 
         $gateway->setUsername($this->user);
         $gateway->setPassword($this->password);

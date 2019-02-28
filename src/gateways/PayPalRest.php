@@ -88,7 +88,7 @@ class PayPalRest extends CreditCardGateway
     protected function createGateway(): AbstractGateway
     {
         /** @var Gateway $gateway */
-        $gateway = Omnipay::create($this->getGatewayClassName());
+        $gateway = static::createOmnipayGateway($this->getGatewayClassName());
 
         $gateway->setClientId($this->clientId);
         $gateway->setSecret($this->secret);
