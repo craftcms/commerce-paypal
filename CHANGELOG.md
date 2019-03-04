@@ -3,7 +3,9 @@
 ## Unreleased
 
 ### Added
-- Gateway settings can now be set to environment variables.
+- PayPal Express API Username, API Password, and API Signature settings can now be set to environment variables.
+- PayPal Pro API Username, API Password, and API Signature settings can now be set to environment variables.
+- PayPal REST Client ID and Secret settings can now be set to environment variables.
 
 ### Changed
 - PayPal for Craft Commerce now requires Craft 3.1.5 or later.
