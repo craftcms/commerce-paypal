@@ -1,6 +1,6 @@
 # Release Notes for PayPal for Craft Commerce
 
-## Unreleased
+## 2.0.0 - 2019-03-04
 
 ### Added
 - PayPal Express API Username, API Password, and API Signature settings can now be set to environment variables.
