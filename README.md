@@ -74,3 +74,10 @@ If you're going to use the PayPal Express payment gateway you are required to ch
 [Craft config](https://docs.craftcms.com/api/v3/craft-config-generalconfig.html#$tokenParam-detail)
 
 Choose any different token name other than ```token```, for example you could put ```craftToken```. Otherwise redirects from PayPal will fail.
+
+### CSRF Protection issue (Error code 400)
+Craft CMS supports CSRF protection when turned on. PayPal Express gateway attempts to POST data back to Craft Commerce which it can do without a valid token. If you wish to have CSRF protection enabled on your site, you will need to disable CSRF protection for that request in `general.php`. For PayPal Express, adding this line will solve the issue:
+
+```php
+'enableCsrfProtection' => (!isset($_SERVER['REQUEST_URI']) || strpos($_SERVER['REQUEST_URI'], 'actions/commerce/payments/complete-payment') === false),
+```
