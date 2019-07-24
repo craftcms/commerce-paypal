@@ -1,5 +1,15 @@
 # Release Notes for PayPal for Craft Commerce
 
+## 2.1.0.1 - 2019-07-24
+
+### Changed
+- Updated changelog with missing changes for 2.1.0
+
+## 2.1.0 - 2019-07-24
+
+### Changed
+- Update Craft Commerce requirements to allow for Craft Commerce 3.
+
 ## 2.0.0 - 2019-03-04
 
 ### Added
