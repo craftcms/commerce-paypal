@@ -6,7 +6,7 @@ Credit card payments with the REST gateway are supported only in the US and UK.
 
 ## Deprecation Notice
 
-PayPal Express and this plugin are deprectated in favour of PayPal Checkout and the [Commerce PayPal Checkout Plugin](https://github.com/craftcms/commerce-paypal-checkout)
+PayPal has deprecated PayPal Express as a checkout flow. They have advised that projects should look to implement the [PayPal Checkout](https://developer.paypal.com/docs/archive/checkout/integrate/) integration to keep up to date. Therefore this plugin is now deprecated in favour of the new [Commerce PayPal Checkout Plugin](https://github.com/craftcms/commerce-paypal-checkout).
 
 ## Requirements
 
