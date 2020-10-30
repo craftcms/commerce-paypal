@@ -4,6 +4,10 @@ This plugin provides [PayPal](https://www.paypal.com/) integrations for [Craft C
 
 Credit card payments with the REST gateway are supported only in the US and UK.
 
+## Deprecation Notice
+
+PayPal Express and this plugin are deprectated in favour of PayPal Checkout and the [Commerce PayPal Checkout Plugin](https://github.com/craftcms/commerce-paypal-checkout)
+
 ## Requirements
 
 This plugin requires Craft 3.1.5 and Craft Commerce 2.0.0 or later.
