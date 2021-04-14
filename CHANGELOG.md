@@ -1,5 +1,10 @@
 # Release Notes for PayPal for Craft Commerce
 
+## 3.0.0 Unreleased
+
+### Changed
+- Paypal for Craft Commerce now requires Craft Commerce 3.3 or later.
+
 ## 2.1.0.1 - 2019-07-24
 
 ### Changed
