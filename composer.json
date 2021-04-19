@@ -25,8 +25,9 @@
     "rss": "https://github.com/craftcms/commerce-paypal/commits/master.atom"
   },
   "require": {
+    "craftcms/cms": "^3.6",
     "craftcms/commerce": "^3.3",
-    "craftcms/commerce-omnipay": "^3.0.0",
+    "craftcms/commerce-omnipay": "^3.0",
     "omnipay/paypal": "^3.0.2"
   },
   "autoload": {
