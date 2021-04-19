@@ -1,6 +1,6 @@
 {
   "name": "craftcms/commerce-paypal",
-  "description": "PayPal integration for Craft Commerce 2 & 3",
+  "description": "PayPal integration for Craft Commerce 3.3+",
   "version": "3.0.0",
   "type": "craft-plugin",
   "keywords": [
