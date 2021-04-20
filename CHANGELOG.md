@@ -1,6 +1,6 @@
 # Release Notes for PayPal for Craft Commerce
 
-## 3.0.0
+## 3.0.0 - 2021-04-20
 
 ### Changed
 - The plugin now requires Craft 3.6 and Commerce 3.3 or later.
