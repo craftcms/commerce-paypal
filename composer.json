@@ -1,7 +1,7 @@
 {
   "name": "craftcms/commerce-paypal",
-  "description": "PayPal integration for Craft Commerce 2 & 3",
-  "version": "2.1.0.1",
+  "description": "PayPal integration for Craft Commerce 3.3+",
+  "version": "3.0.0",
   "type": "craft-plugin",
   "keywords": [
     "paypal",
@@ -25,9 +25,9 @@
     "rss": "https://github.com/craftcms/commerce-paypal/commits/master.atom"
   },
   "require": {
-    "craftcms/cms": "^3.1.5",
-    "craftcms/commerce": "^2.0|^3.0",
-    "craftcms/commerce-omnipay": "^2.0.0",
+    "craftcms/cms": "^3.6",
+    "craftcms/commerce": "^3.3",
+    "craftcms/commerce-omnipay": "^3.0",
     "omnipay/paypal": "^3.0.2"
   },
   "autoload": {
