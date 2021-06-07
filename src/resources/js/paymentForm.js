@@ -4,11 +4,17 @@ function initCheckout() {
         setTimeout(initCheckout, 200);
     } else {
         var $wrapper = $('.paypal-rest-form');
+
+        var $styles = {};
+        if($wrapper.data('styles')){
+            $styles = $wrapper.data('styles');
+        }
+
         var $form = $wrapper.parents('form');
         var paymentUrl = $wrapper.data('prepare');
 
         paypal.Button.render({
-
+            style: $styles,
             env: $wrapper.data('env'),
             commit: true,
 
