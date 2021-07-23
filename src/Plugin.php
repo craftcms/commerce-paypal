@@ -25,10 +25,14 @@ class Plugin extends \craft\base\Plugin
     {
         parent::init();
 
-        Event::on(Gateways::class, Gateways::EVENT_REGISTER_GATEWAY_TYPES,  function(RegisterComponentTypesEvent $event) {
-            $event->types[] = PayPalPro::class;
-            $event->types[] = PayPalRest::class;
-            $event->types[] = PayPalExpress::class;
-        });
+        Event::on(
+            Gateways::class,
+            Gateways::EVENT_REGISTER_GATEWAY_TYPES,
+            function(RegisterComponentTypesEvent $event) {
+                $event->types[] = PayPalPro::class;
+                $event->types[] = PayPalRest::class;
+                $event->types[] = PayPalExpress::class;
+            }
+        );
     }
 }
