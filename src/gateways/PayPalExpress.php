@@ -23,9 +23,6 @@ use Omnipay\PayPal\ExpressInContextGateway as Gateway;
  */
 class PayPalExpress extends OffsiteGateway
 {
-    // Properties
-    // =========================================================================
-
     /**
      * @var string
      */
@@ -80,9 +77,6 @@ class PayPalExpress extends OffsiteGateway
      * @var bool Whether cart information should be sent to the payment gateway
      */
     public $sendCartInfo = false;
-
-    // Public Methods
-    // =========================================================================
 
     /**
      * @inheritdoc
@@ -155,9 +149,6 @@ class PayPalExpress extends OffsiteGateway
         unset($request['card']);
     }
 
-    // Protected Methods
-    // =========================================================================
-
     /**
      * @inheritdoc
      */
@@ -195,9 +186,6 @@ class PayPalExpress extends OffsiteGateway
     {
         return PayPalItemBag::class;
     }
-
-    // Private Methods
-    // =========================================================================
 
     /**
      * Prepare the confirmation request for completeAuthorize and completePurchase requests.

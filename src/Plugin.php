@@ -18,9 +18,6 @@ use yii\base\Event;
  */
 class Plugin extends \craft\base\Plugin
 {
-    // Public Methods
-    // =========================================================================
-
     /**
      * @inheritdoc
      */

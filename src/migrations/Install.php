@@ -23,9 +23,6 @@ use craft\helpers\Json;
  */
 class Install extends Migration
 {
-    // Public Methods
-    // =========================================================================
-
     /**
      * @inheritdoc
      */
@@ -44,9 +41,6 @@ class Install extends Migration
     {
         return true;
     }
-
-    // Private Methods
-    // =========================================================================
 
     /**
      * Converts any old school PayPal gateways to this one

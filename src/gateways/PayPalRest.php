@@ -21,9 +21,6 @@ use Omnipay\PayPal\RestGateway as Gateway;
  */
 class PayPalRest extends CreditCardGateway
 {
-    // Properties
-    // =========================================================================
-
     /**
      * @var string
      */
@@ -38,10 +35,6 @@ class PayPalRest extends CreditCardGateway
      * @var string
      */
     public $testMode;
-
-    // Public Methods
-    // =========================================================================
-
 
     /**
      * @inheritdoc
@@ -78,9 +71,6 @@ class PayPalRest extends CreditCardGateway
             $request['cardReference'] = $paymentForm->cardReference;
         }
     }
-
-    // Protected Methods
-    // =========================================================================
 
     /**
      * @inheritdoc

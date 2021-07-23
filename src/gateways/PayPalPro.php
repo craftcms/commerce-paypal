@@ -17,9 +17,6 @@ use Omnipay\PayPal\ProGateway as Gateway;
  */
 class PayPalPro extends CreditCardGateway
 {
-    // Properties
-    // =========================================================================
-
     /**
      * @var string
      */
@@ -40,9 +37,6 @@ class PayPalPro extends CreditCardGateway
      */
     public $testMode;
 
-    // Public Methods
-    // =========================================================================
-
     /**
      * @inheritdoc
      */
@@ -58,10 +52,6 @@ class PayPalPro extends CreditCardGateway
     {
         return Craft::$app->getView()->renderTemplate('commerce-paypal/pro/gatewaySettings', ['gateway' => $this]);
     }
-
-
-    // Protected Methods
-    // =========================================================================
 
     /**
      * @inheritdoc

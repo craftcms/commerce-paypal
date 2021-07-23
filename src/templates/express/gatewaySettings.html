@@ -1,104 +1,104 @@
 {% from "_includes/forms" import textField, lightswitchField, selectField, autosuggestField %}
 
 {{ lightswitchField({
-        label: "Should commerce send cart information to gateway when making transactions."|t('commerce'),
-        id: 'sendCartInfo',
-        name: 'sendCartInfo',
-        on: gateway.sendCartInfo,
-        errors: gateway.getErrors('sendCartInfo'),
+  label: "Should commerce send cart information to gateway when making transactions."|t('commerce'),
+  id: 'sendCartInfo',
+  name: 'sendCartInfo',
+  on: gateway.sendCartInfo,
+  errors: gateway.getErrors('sendCartInfo'),
 }) }}
 
 {{ autosuggestField({
-        label: 'API Username'|t('commerce'),
-        id: 'username',
-        class: 'ltr',
-        name: 'username',
-        suggestEnvVars: true,
-        value: gateway.username,
-        errors: gateway.getErrors('username')
-    }) }}
+  label: 'API Username'|t('commerce'),
+  id: 'username',
+  class: 'ltr',
+  name: 'username',
+  suggestEnvVars: true,
+  value: gateway.username,
+  errors: gateway.getErrors('username')
+}) }}
 
 {{ autosuggestField({
-        label: "API Password"|t('commerce'),
-        id: 'password',
-        class: 'ltr',
-        name: 'password',
-        suggestEnvVars: true,
-        value: gateway.password,
-        errors: gateway.getErrors('password')
-    }) }}
+  label: "API Password"|t('commerce'),
+  id: 'password',
+  class: 'ltr',
+  name: 'password',
+  suggestEnvVars: true,
+  value: gateway.password,
+  errors: gateway.getErrors('password')
+}) }}
 
 {{ autosuggestField({
-        label: "API Signature"|t('commerce'),
-        id: 'signature',
-        class: 'ltr',
-        name: 'signature',
-        suggestEnvVars: true,
-        value: gateway.signature,
-        errors: gateway.getErrors('signature')
-    }) }}
+  label: "API Signature"|t('commerce'),
+  id: 'signature',
+  class: 'ltr',
+  name: 'signature',
+  suggestEnvVars: true,
+  value: gateway.signature,
+  errors: gateway.getErrors('signature')
+}) }}
 
 {{ lightswitchField({
-        label: "Test mode?"|t('commerce'),
-        name: 'testMode',
-        on: gateway.testMode,
-        errors: gateway.getErrors('testMode'),
-    }) }}
+  label: "Test mode?"|t('commerce'),
+  name: 'testMode',
+  on: gateway.testMode,
+  errors: gateway.getErrors('testMode'),
+}) }}
 
 {{ selectField({
-        label: "Solution type"|t('commerce'),
-        name: 'solutionType',
-        options: {
-                'Sole': 'Sole',
-                'Mark': 'Mark'
-            },
-        value: gateway.solutionType,
-        errors: gateway.getErrors('solutionType')
-    }) }}
+  label: "Solution type"|t('commerce'),
+  name: 'solutionType',
+  options: {
+    'Sole': 'Sole',
+    'Mark': 'Mark'
+  },
+  value: gateway.solutionType,
+  errors: gateway.getErrors('solutionType')
+}) }}
 
 {{ selectField({
-        label: "Landing page"|t('commerce'),
-        name: 'landingPage',
-        options: {
-                'Billing': 'Billing',
-                'Login': 'Login'
-            },
-        value: gateway.landingPage,
-        errors: gateway.getErrors('landingPage')
-    }) }}
+  label: "Landing page"|t('commerce'),
+  name: 'landingPage',
+  options: {
+    'Billing': 'Billing',
+    'Login': 'Login'
+  },
+  value: gateway.landingPage,
+  errors: gateway.getErrors('landingPage')
+}) }}
 
 {{ textField({
-        label: "Brand name"|t('commerce'),
-        id: 'brandName',
-        class: 'ltr',
-        name: 'brandName',
-        value: gateway.brandName,
-        errors: gateway.getErrors('brandName')
-    }) }}
+  label: "Brand name"|t('commerce'),
+  id: 'brandName',
+  class: 'ltr',
+  name: 'brandName',
+  value: gateway.brandName,
+  errors: gateway.getErrors('brandName')
+}) }}
 
 {{ textField({
-        label: "Header image URL"|t('commerce'),
-        id: 'headerImageUrl',
-        class: 'ltr',
-        name: 'headerImageUrl',
-        value: gateway.headerImageUrl,
-        errors: gateway.getErrors('headerImageUrl')
-    }) }}
+  label: "Header image URL"|t('commerce'),
+  id: 'headerImageUrl',
+  class: 'ltr',
+  name: 'headerImageUrl',
+  value: gateway.headerImageUrl,
+  errors: gateway.getErrors('headerImageUrl')
+}) }}
 
 {{ textField({
-        label: "Logo image URL"|t('commerce'),
-        id: 'logoImageUrl',
-        class: 'ltr',
-        name: 'logoImageUrl',
-        value: gateway.logoImageUrl,
-        errors: gateway.getErrors('logoImageUrl')
-    }) }}
+  label: "Logo image URL"|t('commerce'),
+  id: 'logoImageUrl',
+  class: 'ltr',
+  name: 'logoImageUrl',
+  value: gateway.logoImageUrl,
+  errors: gateway.getErrors('logoImageUrl')
+}) }}
 
 {{ textField({
-        label: "Border color"|t('commerce'),
-        id: 'borderColor',
-        class: 'ltr',
-        name: 'borderColor',
-        value: gateway.borderColor,
-        errors: gateway.getErrors('borderColor')
-    }) }}
+  label: "Border color"|t('commerce'),
+  id: 'borderColor',
+  class: 'ltr',
+  name: 'borderColor',
+  value: gateway.borderColor,
+  errors: gateway.getErrors('borderColor')
+}) }}

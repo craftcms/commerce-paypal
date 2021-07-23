@@ -1,41 +1,41 @@
 {% from "_includes/forms" import textField, lightswitchField, autosuggestField %}
 
 {{ autosuggestField({
-    label: 'API Username'|t('commerce'),
-    instructions: "Your PayPal API username."|t('commerce'),
-    id: 'user',
-    class: 'ltr',
-    name: 'user',
-    suggestEnvVars: true,
-    value: gateway.user,
-    errors: gateway.getErrors('user')
+  label: 'API Username'|t('commerce'),
+  instructions: "Your PayPal API username."|t('commerce'),
+  id: 'user',
+  class: 'ltr',
+  name: 'user',
+  suggestEnvVars: true,
+  value: gateway.user,
+  errors: gateway.getErrors('user')
 }) }}
 
 {{ autosuggestField({
-    label: "API Password"|t('commerce'),
-    instructions: "Your PayPal API password."|t('commerce'),
-    id: 'password',
-    class: 'ltr',
-    name: 'password',
-    suggestEnvVars: true,
-    value: gateway.password,
-    errors: gateway.getErrors('password')
+  label: "API Password"|t('commerce'),
+  instructions: "Your PayPal API password."|t('commerce'),
+  id: 'password',
+  class: 'ltr',
+  name: 'password',
+  suggestEnvVars: true,
+  value: gateway.password,
+  errors: gateway.getErrors('password')
 }) }}
 
 {{ autosuggestField({
-    label: "API Signature"|t('commerce'),
-    instructions: "Your PayPal API signature."|t('commerce'),
-    id: 'signature',
-    class: 'ltr',
-    name: 'signature',
-    suggestEnvVars: true,
-    value: gateway.signature,
-    errors: gateway.getErrors('signature')
+  label: "API Signature"|t('commerce'),
+  instructions: "Your PayPal API signature."|t('commerce'),
+  id: 'signature',
+  class: 'ltr',
+  name: 'signature',
+  suggestEnvVars: true,
+  value: gateway.signature,
+  errors: gateway.getErrors('signature')
 }) }}
 
- {{ lightswitchField({
-     label: "Test mode?"|t('commerce'),
-     name: 'testMode',
-     on: gateway.testMode,
-     errors: gateway.getErrors('testMode'),
- }) }}
+{{ lightswitchField({
+  label: "Test mode?"|t('commerce'),
+  name: 'testMode',
+  on: gateway.testMode,
+  errors: gateway.getErrors('testMode'),
+}) }}
